@@ -1,0 +1,393 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>BATTLING TECHNICAL DEBT</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h3> From the Frontlines:</h3> 
+					<h2> Battling Technical Debt</h2>
+					<p>Lauren Burton <br />
+					<a href="https://twitter.com/laurenwesley08" target="_blank">@laurenwesley08</a></p>
+				</section>
+				<section>
+					<h2>Hi, I'm Lauren.</h2>
+					<h3 class="fragment">A little bit about me...</h3>
+					<ul>
+					<li class="fragment">WordPress developer since 2008</li>
+					<li class="fragment">Director of Technology at Subject Matter</li>
+					<li class="fragment">Teacher at General Assembly</li>
+					<li class="fragment">Cat lover, fitness enthusiast, coffee addict</li>
+					</ul>
+				</section>
+				<section>
+					<h2>Did I mention I love cat gifs?</h2>
+					<iframe src="https://giphy.com/embed/JIX9t2j0ZTN9S" width="480" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+				</section>
+				<section>
+					<h2>How many of you have experienced...</h2>
+					<ul>
+						<li class="fragment">"Do it the fastest way - we can refactor later"</li>
+						<li class="fragment">"Don't worry about the documentation"</li>
+						<li class="fragment">"The only one who can change this code is Will"</li>
+						<li class="fragment">"Can we save time by copy and pasting?"</li>
+						<li class="fragment">"We can just QA that after it goes live"</li>
+					</ul>
+				</section>
+				<section>
+					<h1>Congratulations!</h1>
+					<h2>You may have encountered technical debt</h2>
+					<iframe src="https://giphy.com/embed/JfLdIahamXQI0" width="480" height="368" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+				</section>
+				<section>
+					<h2>Today we'll cover:</h2>
+					<ul>
+						<li>What is technical debt?</li>
+						<li>Capacity, constraints and the impact on debt</li>
+						<li>Standardization to improve quality and reduce debt</li>
+						<li>Plenty of cat gifs</li>
+					</ul>
+					<p><small><em>This talk is targeted at technical directors, technical managers and developers looking to make an impact in their teams. Talk is not specifically WordPress focused.</em></small></p>
+				</section>
+				<section>
+					<section>
+						<h2>What is technical debt?</h2>
+					</section>
+					<section>
+						<p>Strategic decisions to take shortcuts for short term gain or choosing a short-sighted solution instead of investing in long term benefits. Consequence of poor design and architecture.</p>
+					</section>
+					<section>
+						<p>This term often gets conflated with poor coding practices or legacy code - but it's bigger than that! Technical debt is STRATEGIC.</p>
+					</section>
+					<section>
+						<p>Like financial debt, debt that is not paid down will grow compounding interest over time.<p>
+					</section>
+					<section>
+						<p>*NOTE* Not all technical debt is bad. Some, like prototypes, are neccessary for project advancement.</p>
+						<iframe src="https://giphy.com/embed/lPjB6DxhWYAJG" width="480" height="360" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+					</section>
+					<section>
+						<p>This is often seen in practice as:</p>
+						<ul>
+							<li>Old versions of WordPress and plugins</li>
+							<li>Dated technology or infrastructure</li>
+							<li>Overly complicated code</li>
+							<li>Insecure code</li>
+							<li>Lack of validation</li>
+							<li>No documentation</li>
+							<li>Lack of or incomplete coding standards</li>
+						</ul>
+					</section>
+					<section>
+						<a href="http://www.commitstrip.com/en/2015/04/07/just-an-exception-they-said/"><img src="http://www.commitstrip.com/wp-content/uploads/2015/04/Strip-If-forever-650-finalenglsih1.jpg" alt="comic strip from CommitStrip"></a>
+					</section>
+				</section>
+				<section>
+					<h2>Imagine your team has...</h2>
+					<ul>
+						<li>Timeline bottlenecks due to lack of resources</li>
+						<li>Codebases that increase task completion speed</li>
+						<li>Projects over budget</li>
+						<li>Fragile applications that require heroics</li>
+						<li>Deployments causing sites to fall over sideways</li>
+					</ul>
+				</section>
+				<section>
+					<h2>So, how do we tackle this?</h2>
+					<p><small>Note: these are my personal experiences and recommendations of those much smarter</small></p>
+				</section>
+				<section>
+					<section>
+						<h2>Capacity and demand</h2>
+					</section>
+					<section>
+						<h3>Identify the capacity</h3>
+						<p>Before you can repay any technical debt, you need a clear understanding of the capacity, including both work in progress (WIP) and active commitments.</p>
+					</section>
+					<section>
+						<h3>Account for all the work you do:</h3>
+						<ul>
+							<li>Business projects - client projects or organizational priorities that drive revenue.</li>
+							<li>Internal projects - technical department projects, these can be investment or tied to other teams' needs.</li>
+							<li>Deployments/change management - planning, testing and ensuring that multiple releases don't conflict.</li>
+							<li>Unplanned work - outages, critical bugs and other issues that prevent actual work time.</li>
+						</ul>
+					</section>
+					<section>
+						<h3>Technical debt's interest comes in unplanned work</h3>
+						<p><small>Start measuring how much time is lost to unplanned work.</small></p>
+						<iframe src="https://giphy.com/embed/b0ebYAjHpFqZG" width="480" height="360" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+					</section>
+					<section>
+						<h3>Align priorities</h3>
+						<ul>
+							<li>Have a clear understanding of the end to end business priorities and how projects fit in.</li>
+							<li>Have conversations with stakeholders and business leaders on their expectations and assumptions for projects.</li>
+							<li>Projects you invest the most in should also have the highest business priority.</li>
+						</ul>
+					</section>
+
+					<section>
+						<h3>Make an inventory</h3>
+						<ul>
+							<li>Identify the project, the resource(s) working on it and deadline</li>
+							<li>Don't limit this to only client billable work</li>
+							<li>Map each project to its work type and business priority (high/medium/low)</li>
+							<li>Look for patterns and conflicts</li>
+						</ul>
+					</section>
+					<section>
+						<h3>Get organized, plan ahead</h3>
+						<ul>
+							<li>Kanban board</li>
+							<li>Gant chart</li>
+							<li>Shared calendar</li>
+						</ul>
+						<a href="https://leankit.com/learn/kanban/kanban-board/"><img src="https://leankit.com/uploads/images/general/_2048xAUTO_fit_center-center/kanban_guide_print_KPO_bleed_121.jpg" alt="kanban image from LeanKit" /></a>
+					</section>
+					<section>
+						<h3>Don't Jeopardize Commitments</h3>
+						<p>Before accepting new work look at the existing WIP to determine if this will jeopardize existing commitments.</p>
+					</section>
+					
+					<section>
+						<h3>Why this matters...</h3>
+						<ul>
+							<li>Without capacity analysis before accepting new work, developers will be scrambling and electing to take shortcuts to meet deadlines. </li>
+							<li>This means fragile applications in production, which creates more unplanned work and increases technical debt.</li>
+							<li>Quality and due date performance go up by allowing developers to focus on a set number of projects.</li>
+						</ul>
+					</section>
+					<section>
+						<h3>Make time for priority debt</h3>
+						<ul>
+							<li>You will never eleminate all technical debt.</li>
+							<li>Ensure the savings of the debt justifies the cost to pay it down.</li>
+							<li>Prioritize your debt by whether or not it supports business objectives.</li>
+						</ul>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>Identify and control the contstraints</h2>
+					</section>
+					<section>
+						<h3>What is a constraint?</h3>
+						<p>A chain management term for something that limits a person, or an organization, in achieving a goal. These can cause bottlenecks in workflow and capacity.</p>
+					</section>
+					<section>
+						<h3>Why this matters...</h3>
+						<ul>
+							<li>Can only move as quickly as constraints will let you.</li>
+							<li>Constraints contribute to capacity overage.</li>
+							<li>A factor in creating technical debt.</li>
+						</ul>
+					</section>
+					<section>
+						<h3>Constraints can look like...</h3>
+						<ul>
+							<li>Role limitations - ex. 1 person who can do a task</li>
+							<li>Infrastructure limitations - ex. legacy systems</li>
+							<li>Time limitations - ex. shortend timeline</li>
+							<li>Process limitations - ex. unclear release cycles</li>
+						</ul>
+					</section>
+					<section>
+						<h3>After identifying...</h3> 
+						<ul>
+							<li>Make quick improvements to get work through faster.</li>
+							<li>Make sure your process accounts for its limitations.</li>
+							<li>Consider what else you can do to eliminate it.</li>
+						</ul>
+					</section>
+					<section>
+						<h3>Constraint example:</h3>
+						<p>FRAGILE INFRASTRUCTURE MANAGED BY ONE PERSON</p>
+						<ul>
+							<li>Document the process for reviving servers.</li>
+							<li>Train up team members on the process for flexibility in addressing urgent needs.</li>
+							<li>Upgrade infrastructure or move to a managed solution.</li>
+						</ul>
+					</section>
+					<section>
+						<h3>What's the impact?</h3>
+						<ul>
+							<li>Improved capacity</li>
+							<li>Reduced task lead time</li>
+							<li>Increased project completion speed</li>
+							<li>Increased profit</li>
+						</ul>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>Standardize</h2>
+					</section>
+					<section>
+						<h2>Without standards, it's like the wild west.</h2>
+						<iframe src="https://giphy.com/embed/26ybuK8hwg0iTktFe" width="480" height="296" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+					</section>
+					<section>
+						<h3>A few things to avoid</h3>
+						<p>Handling special cases </p>
+						<pre>
+						<code data-trim data-noescape>
+							if ($status == "awake"){ 
+								$activity = "Writing spaghetti code"; 
+							} elseif($healthstatus == "OK"){ 
+								$activity = "More spaghetti code"; 
+							}else{ 
+								print "Refactor this code"; 
+							}
+						</code>
+						</pre>
+					</section>
+					<section>
+						<h3>A few things to avoid</h3>
+						<p>Use of Important in CSS/SASS/LESS </p>
+						<pre>
+						<code data-trim data-noescape>
+							header { 
+    						 color: #e74c3c; 
+							}
+							header.intro {
+    						 color: #3498db !important;
+    						 font-size: 20px;
+							}
+						</code>
+						</pre>
+					</section>
+					<section>
+						<h3>A few things to avoid</h3>
+						<p>No or useless comments </p>
+						<pre>
+						<code data-trim data-noescape>
+							# Monkeys and bananas
+
+							foreach(banana b in bunch) {
+    							monkey.eat(b);  
+							}
+						</code>
+						</pre>
+					</section>
+					<section>
+						<h3>Standardization means:</h3>
+						<ul>
+							<li>Version control... you better be using it!</li>
+							<li>Clear release cycles or continuous integration</li>
+							<li>Coding standards and code review</li>
+							<li>Commenting and code documentation</li>
+							<li>Process documentation of common tasks</li>
+							<li>Testing</li>
+						</ul>
+					</section>
+					<section>
+						<h3>Why this matters...</h3>
+						<p>Standardization is a key to controling your constraints, making tasks repeatable so that others can execute and enforcing a level of consistancy and quality in the product.</p>
+					</section>
+					<section>
+						<h3>Release Cycle Management</h3>
+						<ul>
+							<li>"Done" often means ready for QA, but usually there are still bugs.</li>
+							<li>Using gitFlow with a master branch that is always ready to ship and automating regression testing can improve the quality being deployed.</li>
+							<li>Consult your commitments when scheduling releases - be wary of two high-risk deployments in a close window.</li>
+						</ul>
+					</section>
+					<section>
+						<h3>Code Standards</h3>
+						<ul>
+							<li>Document methods and measures for coding to create a shared understanding, more efficency and organization.</li>
+							<li>Baseline using industry standard features, frameworks and technologies.</li>
+							<li>Take inspiration from WordPress' Theme and Plugin Developer Handbooks</li>
+							<li>Make security and compliance part of your process. They are only effective if they are applied before your project ships.</li>
+						</ul>
+					</section>
+					<section>
+						<h3>Code Documentation</h3>
+						<ul>
+							<li>Within your code, document what it does and why.</li>
+							<li>Documentation only makes sense if it's meaningful AND gets updated when the code evolves.</li>
+							<li>Build documentation into your code standards and code review process.</li>
+							<li>Documentation does NOT mean commenting out legacy code instead of refactoring. </li>
+						</ul>
+					</section>
+					<section>
+						<h3>Process Documentation</h3>
+						<ul>
+							<li>Process documentation and abstraction allows tasks to scale across people and groups.</li>
+							<li>Take recent requests, document what the steps are, who can do them and how long they take.</li>
+							<li>Will cut down on onboarding time for new hires.</li>
+						</ul>
+					</section>
+					<section>
+						<h3>Testing</h3>
+						<ul>
+							<li>QA testing is a critical component to preventing future technical debt.</li>
+							<li>Manual testing will only get you so far. Automated testing can catch signifcant bugs that could be missed.</li>
+							<li>Tests look at the functionality, not the implementation. They should always be done in conjunction with a code review.</li>
+						</ul>
+					</section>
+					<section>
+						<h3>Standardize Mainenance</h3>
+						<p> Building preventative maintenance into your workflow helps ensure availability and security. The WordPress community works hard to put out new releases - it's your responsibility to apply them!</p>
+					</section>
+				</section>
+				<section>
+					<h2>To sum it up...</h2>
+					<p>Identify your top areas of technical debt to tackle to decrease the amount of unplanned work created by problematic code, inefficient workflows and disorganization. Always be evaluating your process and what can be improved.</p>
+				</section>
+				<section>
+					<h2>Resources</h2>
+					<ul>
+						<li><a href="https://blog.cloudymusings.com/a-lexicon-of-software-development-debt-6d88524f0a19" target="_blank">Article: A Lexicon of Software Development Debt</a></li>
+						<li><a href="https://en.wikipedia.org/wiki/Technical_debt" target="_blank">Wikipedia: Technical Debt</a></li>
+						<li><a href="http://www.ustream.tv/recorded/102892764" target="_blank">Video: Tackling technical debt at scale</a></li>
+						<li><a href="https://www.amazon.com/Phoenix-Project-DevOps-Helping-Business-ebook/dp/B00AZRBLHO" target="_blank">Book: The Phoenix Project</a></li>
+					</ul>
+				</section>
+				<section>
+					<h2>Questions?</h2>
+				</section>
+				<section>
+					<h1>Thank you</h1>
+					<iframe src="https://giphy.com/embed/iEivb6DyFoJJm" width="480" height="268" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+				</section>
+				
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			Reveal.initialize({
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>
